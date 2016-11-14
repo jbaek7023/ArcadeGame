@@ -32,6 +32,14 @@ Enemy.prototype.update = function(dt) {
     	this.x = -100 * Math.random();
     	this.y= enemyY[Math.floor(Math.random()*3)];
     }
+    //distance between player and enemy 
+    var distanceX=Math.abs(this.x-playerX);
+    var distanceY=Math.abs(this.y-playerY);
+    if(distanceX<50&&distanceY<50) {
+    	//collision occur
+    	playerX=200;
+		playerY=400;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -49,6 +57,9 @@ var Player = function() {
 }
 
 Player.prototype.update = function(dt){
+	//distance between bug and player
+	
+	
 	this.x=playerX;
 	this.y=playerY;
 
@@ -81,12 +92,6 @@ Player.prototype.handleInput = function(key) {
 			}
 			break;
 	}
-}
-
-/*Is the player in the edge of canvas?*/
-var isInEdge = function() {
-
-	return false;
 }
 
 // Now instantiate your objects.
