@@ -6,6 +6,10 @@ var playerY=400;
 //possible random y value for enemies
 var enemyY = [50, 135, 220];
 
+//Possible Heart Coordinate
+var heartX = [50, 135, 220, 295, 370];
+var heartY = [50, 135, 220];
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -35,6 +39,7 @@ Enemy.prototype.update = function(dt) {
     //distance between player and enemy 
     var distanceX=Math.abs(this.x-playerX);
     var distanceY=Math.abs(this.y-playerY);
+    //if the bug hits the player,
     if(distanceX<50&&distanceY<50) {
     	//collision occur
     	playerX=200;
@@ -57,12 +62,8 @@ var Player = function() {
 }
 
 Player.prototype.update = function(dt){
-	//distance between bug and player
-	
-	
 	this.x=playerX;
 	this.y=playerY;
-
 }
 
 Player.prototype.render = function() {
@@ -94,6 +95,22 @@ Player.prototype.handleInput = function(key) {
 	}
 }
 
+/*Heart Starts here*/
+var Heart = function() {
+	this.sprite = 'images/Heart.png';
+	this.x=heartX[Math.floor(Math.random()*5)];
+	this.y=heartY[Math.floor(Math.random()*3)];
+}
+
+Heart.prototype.update = function(dt){
+	this.x=this.x;
+	this.y=this.y;
+}
+
+Heart.prototype.render = function() {
+	//ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -104,7 +121,7 @@ for(var i=0; i<3;i++){
 
 var player = new Player;
 
-
+var heart = new Heart;
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {

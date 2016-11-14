@@ -95,6 +95,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        heart.update(); //update heart position
     }
 
     /* This function initially draws the "game level", it will then call
@@ -152,6 +153,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+        heart.render(); //render heart position
     }
 
     /* This function does nothing but it could have been a good place to
