@@ -10,6 +10,6 @@ This is a web game written in Javascript using Canvas and HTML/CSS.
 ##User Guide
  Use **arrow key** on your keyboard to move your character.
  <br /><br />
- **to win**, collect the star floating in the river. <br />
+ **To win**, collect the star floating in the river. <br />
  If you collect **5 stars**, you win! <br />
  _**But everytime the bugs bump into you, you have to start over.**_
